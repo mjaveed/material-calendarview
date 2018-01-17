@@ -93,7 +93,7 @@ class DayView extends CheckedTextView {
     }
 
     @NonNull
-    public String getLabel() {
+    public SpannableString getLabel() {
         return formatter.format(date);
     }
 
@@ -244,10 +244,10 @@ class DayView extends CheckedTextView {
         // Facade has spans
         List<DayViewFacade.Span> spans = facade.getSpans();
         if (!spans.isEmpty()) {
-            String label = getLabel();
-            SpannableString formattedLabel = new SpannableString(getLabel());
+            //String label = getLabel();
+            SpannableString formattedLabel = getLabel();
             for (DayViewFacade.Span span : spans) {
-                formattedLabel.setSpan(span.span, 0, label.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                formattedLabel.setSpan(span.span, 0, formattedLabel.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
             }
             setText(formattedLabel);
         }
