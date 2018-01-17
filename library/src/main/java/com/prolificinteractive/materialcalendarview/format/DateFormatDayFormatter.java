@@ -38,6 +38,6 @@ public class DateFormatDayFormatter implements DayFormatter {
     @Override
     @NonNull
     public SpannableString format(@NonNull CalendarDay day) {
-        return dateFormat.format(day.getDate());
+        return new SpannableString(dateFormat.format(day.getDate()));
     }
 }
